@@ -1,0 +1,1 @@
+"use strict";(self["webpackChunkmenu_"]=self["webpackChunkmenu_"]||[]).push([[637],{5637:(n,e,u)=>{u.r(e),u.d(e,{default:()=>o});var t=function(){var n=this,e=n._self._c;return e("div",[n._v("所有菜单")])},s=[];const c={name:"Menu",data:function(){return{}},mounted:function(){},methods:{}},r=c;var a=u(1001),l=(0,a.Z)(r,t,s,!1,null,"5567c698",null);const o=l.exports}}]);
