@@ -5,7 +5,7 @@ module.exports = defineConfig({
   lintOnSave: false,
   productionSourceMap: false,
   publicPath:
-    process.env.NODE_ENV === 'production' ? '' : './',
+    process.env.NODE_ENV === 'production' ? './dist' : './',
   filenameHashing: true,
   assetsDir: '',
   devServer: {
