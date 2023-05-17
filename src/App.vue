@@ -1,6 +1,6 @@
 <template>
   <div class="app-layout">
-    <SiderbarCom class="siderbar"/>
+    <!-- <SiderbarCom class="siderbar"/> -->
     <router-view />
   </div>
 </template>

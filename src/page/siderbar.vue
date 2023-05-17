@@ -9,7 +9,7 @@
       <i class="el-icon-menu"></i>
       <span slot="title">菜单</span>
     </el-menu-item>
-    <el-menu-item index="2" disabled>
+    <el-menu-item index="2">
       <i class="el-icon-document"></i>
       <span slot="title">材料</span>
     </el-menu-item>

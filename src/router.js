@@ -7,7 +7,7 @@ const routes = [
     {
       path: '/menu',
       name: 'menuCom',
-      component: () => import('@/page/menuCom'),
+      component: () => import('@/page/menuFirst/menuCom'),
       meta: {
         title: 'menu',
         isMenu: true
