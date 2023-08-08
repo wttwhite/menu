@@ -1,5 +1,8 @@
-@for $i from 0 through 20 {
-  [margin#{$i}] {
-    margin: $i * 1px;
+@for $i from 0 through 16 {
+  [padding#{$i}] {
+    padding: $i * 1px;
+  }
+  [paddingTop#{$i}] {
+    padding-top: $i * 1px;
   }
 }

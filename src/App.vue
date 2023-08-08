@@ -1,18 +1,19 @@
 <template>
   <div class="app-layout">
-    <!-- <SiderbarCom class="siderbar"/> -->
+    <SidebarCom class="sidebar" />
     <router-view />
   </div>
 </template>
 <script>
-import SiderbarCom from './page/siderbar.vue'
+import SidebarCom from './page/sidebar.vue'
 export default {
   name: 'App',
-  components: { SiderbarCom },
+  components: { SidebarCom },
 }
 </script>
 <style>
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
 }
@@ -22,9 +23,4 @@ html, body {
   display: flex;
   height: 100%;
 }
-.siderbar {
-    width: 240px;
-    height: 100%;
-}
 </style>
-
