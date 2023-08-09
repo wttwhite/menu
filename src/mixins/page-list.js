@@ -18,7 +18,7 @@ export default {
     mixinGetDataList(pageNo) {
       pageNo && (this.searchForm.pageNo = pageNo)
       let params = { ...this.searchForm }
-      this.pageList = [{ id: 1 }]
+      // this.pageList = [{ id: 1 }]
       this.searchFormFormat && (params = this.searchFormFormat(params))
       // getPageApi(this.pageUrl, this.pageMethod || 'post', params).then(
       //   (res) => {

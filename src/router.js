@@ -13,11 +13,20 @@ const routes = [
     },
   },
   {
-    path: '/menu',
-    name: 'menuCom',
-    component: () => import('@/page/menuFirst/menuCom'),
+    path: '/menuType',
+    name: 'menuType',
+    component: () => import('@/page/menuType'),
     meta: {
-      title: 'menu',
+      title: '分类',
+      isMenu: true,
+    },
+  },
+  {
+    path: '/menuHistory',
+    name: 'menuHistory',
+    component: () => import('@/page/menuHistory'),
+    meta: {
+      title: '历史菜谱',
       isMenu: true,
     },
   },
