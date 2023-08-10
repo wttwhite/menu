@@ -1,5 +1,26 @@
 <template>
   <div class="page-container menu-page">
+    <el-form
+      slot="search"
+      class="page-search"
+      :inline="true"
+      :model="searchForm"
+      label-width="90px"
+    >
+      <el-form-item label="名称">
+        <el-input v-model="searchForm.name" maxlength="10"></el-input>
+      </el-form-item>
+      <el-form-item label="分类">
+        <el-select v-model="searchForm.type">
+          <el-option
+            v-for="(item, index) in typeList"
+            :key="index"
+            :value="item.id"
+            :label="item.name"
+          ></el-option>
+        </el-select>
+      </el-form-item>
+    </el-form>
     <section class="page-btn-box">
       <el-button type="primary" @click="addClick">新增</el-button>
       <el-radio-group v-model="checkedType">
@@ -11,6 +32,7 @@
         </el-radio-button>
       </el-radio-group>
     </section>
+
     <section class="page-main">
       <image-com-vue />
       <table-com-vue
@@ -37,7 +59,9 @@
       v-show="addOnePos.show"
       :class="['add-one', addOnePos.active && 'active']"
       :style="{ left: addOnePos.x + 'px', top: addOnePos.y + 'px' }"
-    ></div>
+    >
+      <span>1</span>
+    </div>
     <div
       :class="[
         'today-todo',
@@ -46,10 +70,12 @@
         addOnePos.panelActive && 'active',
       ]"
       ref="todoRef"
+      @click="todoClick"
     >
       <i class="el-icon-s-order"></i>
       <el-badge class="mark-num" :value="addTodayTodoList.length" />
     </div>
+    <drawer-panel-vue ref="drawerPanelRef" />
   </div>
 </template>
 <script>
@@ -60,10 +86,13 @@ import dialogAddEditVue from './components/dialogAddEdit.vue'
 import dialogDetailVue from './components/dialogDetail.vue'
 import dialogSummaryVue from './components/dialogSummary.vue'
 import { MockData } from './mock'
+import drawerPanelVue from './components/drawer-panel.vue'
 const DefaultSearchForm = () => {
   return {
     pageNo: 1,
     pageSize: 20,
+    name: '',
+    type: '',
   }
 }
 export default {
@@ -74,6 +103,7 @@ export default {
     dialogAddEditVue,
     dialogDetailVue,
     dialogSummaryVue,
+    drawerPanelVue,
   },
   mixins: [pageMixin],
   data() {
@@ -81,6 +111,7 @@ export default {
       checkedType: 'image',
       searchForm: DefaultSearchForm(),
       pageList: MockData,
+      typeList: [],
       addOnePos: {
         x: 0,
         y: 0,
@@ -128,6 +159,9 @@ export default {
     },
     recordClick(row) {
       this.$refs.dialogSummaryRef.showDialog(row)
+    },
+    todoClick() {
+      this.$refs.drawerPanelRef.showDialog(this.addTodayTodoList)
     },
     delClick(row) {
       this.$confirm(`确认删除${row.name || ''}吗?`, '确认', {
@@ -188,6 +222,11 @@ export default {
     height: 30px;
     background: red;
     border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
     &.active {
       transition: top 0.8s cubic-bezier(0.27, -0.62, 1, 0.4), left 0.8s linear;
       // cubic-bezier(0.08, -0.35, 0.99, 0.33)

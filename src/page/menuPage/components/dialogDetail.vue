@@ -1,19 +1,13 @@
 <template>
   <el-dialog :visible.sync="dialogVisible" width="50%">
-    <el-descriptions title="详情">
-      <el-descriptions-item label="名称">
-        {{ detailData.name }}
-      </el-descriptions-item>
-      <el-descriptions-item label="类别">
-        <el-tag size="small">学校</el-tag>
-      </el-descriptions-item>
-      <el-descriptions-item label="备注"></el-descriptions-item>
-    </el-descriptions>
+    <descriptions-item-vue :detailData="detailData" />
   </el-dialog>
 </template>
 <script>
+import descriptionsItemVue from './descriptions-item.vue'
 export default {
   name: 'dialogDetail',
+  components: { descriptionsItemVue },
   data() {
     return {
       dialogVisible: false,
@@ -22,6 +16,7 @@ export default {
   },
   methods: {
     showDialog(row) {
+      this.dialogVisible = true
       this.detailData = {
         ...this.detailData,
         ...row,

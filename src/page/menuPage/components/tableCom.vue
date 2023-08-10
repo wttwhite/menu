@@ -8,7 +8,18 @@
   >
     <el-table-column type="index" label="序号" width="60"></el-table-column>
     <el-table-column label="名称" prop="name"></el-table-column>
+    <el-table-column label="图片" prop="pic" width="80">
+      <template slot-scope="{ row }">
+        <el-image
+          style="width: 50px; height: 50px"
+          :src="row.pic"
+          :preview-src-list="[row.pic]"
+        >
+        </el-image>
+      </template>
+    </el-table-column>
     <el-table-column label="分类" prop="type"></el-table-column>
+    <el-table-column label="时长(分钟)" prop="time"></el-table-column>
     <el-table-column label="次数" prop="num">
       <!-- <template slot-scope="{ row }"> -->
       <!-- <el-input-number
